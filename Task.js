@@ -38,9 +38,8 @@ class Task extends React.Component {
     );
   }
 
-  _handleAddTask(event){
-    console.log(event);
-    axios.post(`http://localhost:3000/tasks`, {task: event.currentTarget.value})
+  _handleAddTask(task){
+    axios.post(`http://localhost:3000/tasks`, { task })
       .then(res => {
         const tasks = res.data;
         this.setState({ tasks });
