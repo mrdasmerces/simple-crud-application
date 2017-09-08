@@ -12,6 +12,7 @@ class Task extends React.Component {
     };
 
     this._handleAddTask = this._handleAddTask.bind(this);
+    this._handleRemoveTask = this._handleRemoveTask.bind(this);
   }
 
   componentDidMount() {
@@ -38,20 +39,20 @@ class Task extends React.Component {
   }
 
   _handleAddTask(event){
-    console.log(event.currentTarget.value);
+    console.log(event);
     axios.post(`http://localhost:3000/tasks`, {task: event.currentTarget.value})
       .then(res => {
         const tasks = res.data;
-        Task.setState({ tasks });
+        this.setState({ tasks });
       });
   }
 
-  _handleRemoveTask(index){
-    console.log(index);
-    axios.delete(`http://localhost:3000/tasks/${index}` )
+  _handleRemoveTask(id){
+    axios.delete(`http://localhost:3000/tasks/${id}`)
       .then(res => {
         const tasks = res.data;
-      });    
+        this.setState({tasks}) ;
+      });   
   }
 }
 
