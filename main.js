@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.jsx';
+import Task from './Task.js';
+import 'jquery';
+import 'bootstrap/dist/css/bootstrap.css';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Task/>, document.getElementById('app'));
